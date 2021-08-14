@@ -8,6 +8,10 @@ export const Container = styled.div`
     padding: 16px;
 `;
 
+export const Content = styled.section`
+    padding-top: calc(124px + 20px)
+`
+
 export const Wrapper = styled.div`
     position: relative
 `

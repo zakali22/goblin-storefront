@@ -13,9 +13,10 @@ const Header = styled.header`
     ${Container} {
         display: flex;
         justify-content: space-between;
-        
+        align-items: center;
+
         .cart-icon {
-            width: 90px;
+            width: 80px;
         }
     }
 `;

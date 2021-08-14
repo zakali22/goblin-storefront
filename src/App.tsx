@@ -1,24 +1,17 @@
 import React, {Fragment} from 'react';
 import GlobalStyles from "./assets/styles/globalStyles"
-import {Container, Logo, Wrapper} from "./assets/styles/index"
-import Header from "./assets/styles/components/Header"
-import{ ReactComponent as CartIcon} from "../public/images/cart.svg"
+import {Container} from "./assets/styles/index"
+import Layout from "./components/Layout"
 
 function App() {
   return (
     <Fragment>
       <GlobalStyles />
-      <Header>
-        <Container>
-          <Wrapper>
-            <Logo>Global Store</Logo>
-            <h4>Everything for your Typescript adventure</h4>
-          </Wrapper>
-          <Wrapper>
-            <CartIcon className="cart-icon" />
-          </Wrapper>
+      <Layout>
+        <Container className="nes-container with-title">
+          <p className="title">Weapons</p>
         </Container>
-      </Header>
+      </Layout>
     </Fragment>
   );
 }
