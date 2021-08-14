@@ -3,11 +3,12 @@ import {Container} from "../assets/styles/index"
 
 type WrapperContainerProps = {
     title: string,
-    centered?: boolean
+    centered?: boolean,
+    padding?: string
 }
 
-const WrapperContainer: React.FC<WrapperContainerProps> = ({children, title, centered}) => (
-    <Container className={`nes-container ${title ? 'with-title' : ''} ${centered ? 'is-centered' : ''}`}>
+const WrapperContainer: React.FC<WrapperContainerProps> = ({children, title, centered, padding}) => (
+    <Container padding={padding} className={`nes-container ${title ? 'with-title' : ''} ${centered ? 'is-centered' : ''}`}>
         <p className="title">{title}</p>
         {children}
     </Container>
