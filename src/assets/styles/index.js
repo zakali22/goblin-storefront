@@ -6,6 +6,10 @@ export const Container = styled.div`
     max-width: 1000px;
     margin: 0 auto;
     padding: 16px;
+
+    &.nes-container {
+        padding: 10px;
+    }
 `;
 
 export const Content = styled.section`
