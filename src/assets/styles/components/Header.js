@@ -12,7 +12,11 @@ const Header = styled.header`
 
     ${Container} {
         display: flex;
+        justify-content: space-between;
         
+        .cart-icon {
+            width: 90px;
+        }
     }
 `;
 

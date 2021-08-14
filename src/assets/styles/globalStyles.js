@@ -15,6 +15,7 @@ const globalStyles = createGlobalStyle`
 
     body {
         margin: 0;
+        min-height: 100vh
     }
       
     html {
@@ -39,6 +40,12 @@ const globalStyles = createGlobalStyle`
         @media(max-width: 767px){
             font-size: 16px;
         }
+    }
+
+    svg {
+        height: auto;
+        width: 100%;
+        display: block;
     }
 `
 

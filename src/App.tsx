@@ -15,7 +15,7 @@ function App() {
             <h4>Everything for your Typescript adventure</h4>
           </Wrapper>
           <Wrapper>
-            <CartIcon />
+            <CartIcon className="cart-icon" />
           </Wrapper>
         </Container>
       </Header>
