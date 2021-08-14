@@ -2,7 +2,7 @@ import React, {Fragment} from 'react';
 import GlobalStyles from "./assets/styles/globalStyles"
 import {Container, Logo, Wrapper} from "./assets/styles/index"
 import Header from "./assets/styles/components/Header"
-import{ ReactComponent as CartIcon} from "/images/cart.svg"
+import{ ReactComponent as CartIcon} from "../public/images/cart.svg"
 
 function App() {
   return (
