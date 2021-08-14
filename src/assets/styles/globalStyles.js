@@ -20,6 +20,26 @@ const globalStyles = createGlobalStyle`
     html {
         box-sizing: border-box;
     }      
+
+    h1 {
+        font-size: 32px;
+
+        @media(max-width: 767px){
+            font-size: 29px;
+        }
+    }
+
+    h2 {
+        @media(max-width: 767px){
+            font-size: 20px;
+        }
+    }
+
+    h3 {
+        @media(max-width: 767px){
+            font-size: 16px;
+        }
+    }
 `
 
 export default globalStyles
