@@ -9,6 +9,7 @@ const Header = styled.header`
     width: 100%;
     border-bottom: 4px solid #d3d3d3;
     background-color: white;
+    z-index: 100;
 
     ${Container} {
         display: flex;

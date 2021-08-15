@@ -60,6 +60,20 @@ export const Wrapper = styled.div`
     position: relative
 `
 
+export const WrapperFlexed = styled.div`
+    display: flex;
+    flex-direction: ${props => props.flexDirection ? props.flexDirection : 'row'};
+    align-items: ${props => props.alignItems ? props.alignItems : 'center'};
+    justify-content: ${props => props.justifyContent ? props.justifyContent : 'space-between'};
+    margin: ${props => props.margin};
+    padding: ${props => props.padding};
+
+    @media(max-width: 600px){
+        flex-direction: column;
+        align-items: center;
+    }
+`
+
 // Elements
 export const Logo = styled.h1`
     color: #4aa52e;
