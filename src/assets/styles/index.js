@@ -57,7 +57,24 @@ export const GridListing = styled.div`
 `
 
 export const Wrapper = styled.div`
-    position: relative
+    position: relative;
+
+    &.cart-icon-wrapper {
+        .cart-icon-total {
+            position: absolute;
+            top: 0;
+            right: -20px;
+            min-width: 15px;
+            min-height: 15px;
+            width: auto;
+            height: auto;
+
+            span {
+                font-size: 12px;
+                position: relative;
+            }
+        }
+    }
 `
 
 export const WrapperFlexed = styled.div`
