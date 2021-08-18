@@ -9,8 +9,9 @@ const Header = () => (
                 <Logo>Global Store</Logo>
                 <h4>Everything for your Typescript adventure</h4>
             </Wrapper>
-            <Wrapper>
+            <Wrapper className="cart-icon-wrapper">
                 <CartIcon className="cart-icon" />
+                <Wrapper className="nes-badge cart-icon-total"><span className="is-error">20</span></Wrapper>
             </Wrapper>
         </Container>
     </Nav>
