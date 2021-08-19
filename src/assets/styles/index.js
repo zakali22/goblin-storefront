@@ -58,6 +58,8 @@ export const GridListing = styled.div`
 
 export const Wrapper = styled.div`
     position: relative;
+    margin: ${props => props.margin};
+    padding: ${props => props.padding};
 
     &.cart-icon-wrapper {
         .cart-icon-total {
@@ -106,5 +108,18 @@ export const ImageWrapper = styled.div`
     & > img {
         width: 100%;
         height: auto;
+    }
+`
+
+export const Form = styled.form`
+    display: flex;
+    flex-direction: column;
+
+    button.nes-btn {
+        align-self: flex-start
+    }
+
+    & > .nes-field:not(:last-of-type) {
+        margin-bottom: 20px;
     }
 `
