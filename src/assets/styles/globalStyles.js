@@ -47,6 +47,10 @@ const globalStyles = createGlobalStyle`
         width: 100%;
         display: block;
     }
+
+    button.nes-btn {
+        margin: 30px 0;
+    }
 `
 
 export default globalStyles
