@@ -22,6 +22,10 @@ export const Container = styled.div`
 
     &.nes-container {
         padding: ${props => props.padding ? props.padding : '20px'};
+
+        &.with-title {
+            text-transform: capitalize
+        }
     }
 `;
 

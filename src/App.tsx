@@ -10,7 +10,7 @@ import { useAppState } from './utils/useAppState';
 import {setProducts, setCategories} from "./state/appStateActions"
 
 function App() {
-  const {dispatch} = useAppState()
+  const {state: {productList}, dispatch} = useAppState()
   
   const fetchData = async () => {
     const res = await axios.get("http://localhost:4000/products")
@@ -21,7 +21,12 @@ function App() {
     fetchData().then(res => {
       const {categories} = res
       const categoriesList = categories.map(({name}:{name: string}) => ({name})) 
-      const productList = categories.map(({items}: {items: any}) => (items)).flat(Infinity)
+      const productList = categories.map(({name, items}: {name: string, items: []}) => {
+         return items.map(item => ({
+            category: name,
+            ...item as {} // Spread operator in TS
+          }))
+      }).flat(Infinity)
 
       dispatch(setProducts(productList))
       dispatch(setCategories(categoriesList))
@@ -35,7 +40,7 @@ function App() {
     <Fragment>
       <GlobalStyles />
       <Layout>
-        <ProductListing />
+        <ProductListing products={productList}/>
         <CartSummary />
         <Checkout />
         <OrderSummary />
