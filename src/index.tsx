@@ -2,10 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import AppStateContextProvider from "./state/context/AppState"
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <AppStateContextProvider>
+      <App />
+    </AppStateContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
