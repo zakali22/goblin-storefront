@@ -5,7 +5,8 @@ export type Product = {
     name: string,
     description: string,
     image: string,
-    price: number
+    price: number,
+    category: string
 }
 
 type Category = {
