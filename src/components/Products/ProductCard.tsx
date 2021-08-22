@@ -1,13 +1,18 @@
 import {Card} from "../../assets/styles/components/Card"
 import {ImageWrapper} from "../../assets/styles/index"
+import {Product} from "../../state/appStateReducer"
 
-const ProductCard = () => (
+type ProductCardProps = {
+    product: Product
+}
+
+const ProductCard = ({product: {_id, image, name, price, description}}: ProductCardProps) => (
     <Card className="nes-container is-rounded">
         <ImageWrapper width="64">
-            <img src={'/images/broad_sword.png'} alt="Product"/>
+            <img src={image} alt="Product"/>
         </ImageWrapper>
-        <p>Rusty Sword</p>
-        <p>50 Zm</p>
+        <p>{name}</p>
+        <p>{price} Zm</p>
         <button type="button" className="nes-btn is-primary">Add to card</button>
     </Card>
 )

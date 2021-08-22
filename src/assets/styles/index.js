@@ -17,11 +17,15 @@ const calcGrid = (columnsLength) => {
 export const Container = styled.div`
     width: 100%;
     max-width: 980px;
-    margin: 0 auto;
+    margin: ${props => props.marginTop ? props.marginTop : '0'} auto ${props => props.marginBottom ? props.marginBottom : '0'} auto;
     padding: 16px;
 
     &.nes-container {
         padding: ${props => props.padding ? props.padding : '20px'};
+
+        &.with-title {
+            text-transform: capitalize
+        }
     }
 `;
 
@@ -75,6 +79,14 @@ export const Wrapper = styled.div`
                 font-size: 12px;
                 position: relative;
             }
+        }
+    }
+
+    &.nes-select {
+        width: fit-content;
+
+        select {
+            font-size: 1rem;
         }
     }
 `

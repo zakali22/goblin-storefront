@@ -32,11 +32,11 @@ function generateOrderId(){
 
 
 // API
-app.get("/products", (req, res) => { // req: body, arguments // res: return result of API call
+app.get("/products", (req: any, res: any) => { // req: body, arguments // res: return result of API call
     return res.json(seedData)
 })
 
-app.post("/checkout", (req, res) => {
+app.post("/checkout", (req: any, res: any) => {
     let newOrder = req.body;
     newOrder.id = generateOrderId();
 
@@ -44,7 +44,7 @@ app.post("/checkout", (req, res) => {
     return res.json({success: true, orderId: newOrder.id})
 })
 
-app.get("/order/:orderId", (req, res) => {
+app.get("/order/:orderId", (req: any, res: any) => {
     const {orderId} = req.params;
     const order = orders[orders.findIndex(({id}) => id === orderId)]
     console.log(order)
