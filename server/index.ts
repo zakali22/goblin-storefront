@@ -9,6 +9,7 @@ const port: string = process.env.PORT || '4000'
 const seedData = require("./products.json")
 
 interface Product {
+    _id: string,
     name: string,
     description: string,
     image: string,

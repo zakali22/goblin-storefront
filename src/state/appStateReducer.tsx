@@ -1,6 +1,7 @@
 import {Action} from "./appStateActions"
 
-type Product = {
+export type Product = {
+    _id: string,
     name: string,
     description: string,
     image: string,
@@ -27,6 +28,31 @@ export const appData: AppState = {
 
 export function appReducer(state: AppState, action: Action){
     switch(action.type){
+        case "SET_CATEGORIES":  
+            return {
+                ...state,
+                categories: action.payload.categories
+            }
+        case "SET_PRODUCTS":
+            return {
+                ...state,
+                productList: action.payload.productList
+            } 
+        case "SELECT_CATEGORY":
+            return {
+                ...state,
+                selectedCategory: action.payload
+            }
+        case "ADD_PRODUCT_CART":
+            return {
+                ...state,
+                cart: [...state.cart, action.payload.product]
+            }
+        case "REMOVE_PRODUCT_CART":
+            return {
+                ...state,
+                cart: state.cart.filter(product => product._id !== action.payload.productId)
+            }
         default: 
             return state
     }
