@@ -3,48 +3,56 @@
       "name": "Weapons",
       "items": [
         {
+          "_id": "16327e5f-6b98-4b62-a068-49eeb60b16e3",
           "name": "Rusty Sword",
           "description": "Simple sword description.",
           "image": "/images/rusty_sword.png",
           "price": "5"
         },
         {
+          "_id": "bb78b88a-0360-11ec-b3ea-375b5f8e48a1",
           "name": "Broad Sword",
           "description": "Simple sword description.",
           "image": "/images/broad_sword.png",
           "price": "25"
         },
         {
+          "_id": "bb78b9c0-0360-11ec-b3eb-87cdbc6d8dcf",
           "name": "Katana",
           "description": "Simple sword description.",
           "image": "/images/katana.png",
           "price": "50"
         },
         {
+          "_id": "bb78b9e8-0360-11ec-b3ec-e73a57ff4e1a",
           "name": "Scimitar",
           "description": "Simple sword description.",
           "image": "/images/scimitar.png",
           "price": "60"
         },
         {
+          "_id": "298b3a44-6a3a-446a-ac09-c44d9896e018",
           "name": "Sabre",
           "description": "Simple sword description.",
           "image": "/images/sabre.png",
           "price": "70"
         },
         {
+          "_id": "febb45c1-95ce-47d1-bc1c-2d50e95364fd",
           "name": "Divine Sword",
           "description": "Simple sword description.",
           "image": "/images/divine_sword.png",
           "price": "250"
         },
         {
+          "_id": "b13661c6-8cca-47b8-8c30-645b68bbf78f",
           "name": "Basic Spear",
           "description": "Simple sword description.",
           "image": "/images/basic_spear.png",
           "price": "5"
         },
         {
+          "_id": "80964839-d80f-408c-b0b8-94e159b62852",
           "name": "Elven Wand",
           "description": "Simple sword description.",
           "image": "/images/elven_wand.png",
@@ -56,18 +64,21 @@
       "name": "Armor",
       "items": [
         {
+          "_id": "3afb5840-1750-4bbf-9d7c-c82b5b18c20c",
           "name": "Rusty Helmet",
           "description": "Simple sword description.",
           "image": "/images/rusty_helmet.png",
           "price": "7"
         },
         {
+          "_id": "d1742e66-94a1-4cb5-8ed6-60debb2ba068",
           "name": "Plate Armor",
           "description": "Simple sword description.",
           "image": "/images/plate_armor.png",
           "price": "75"
         },
         {
+          "_id": "1d78f4a8-31f1-4222-8994-123bcb901433",
           "name": "Golden Armor",
           "description": "Simple sword description.",
           "image": "/images/golden_armor.png",
@@ -79,6 +90,7 @@
       "name": "Potions",
       "items": [
         {
+          "_id": "f345aa90-b6df-4cba-b43a-adf446a165e2",
           "name": "Ruby Potion",
           "description": "Simple sword description.",
           "image": "/images/ruby_potion.png",
@@ -90,6 +102,7 @@
       "name": "Misc",
       "items": [
         {
+          "_id": "ed504cf1-ee8b-41de-abf8-fbccc09d3fec",
           "name": "Raspberry Pie",
           "description": "Simple sword description.",
           "image": "/images/raspberry_pie.png",
