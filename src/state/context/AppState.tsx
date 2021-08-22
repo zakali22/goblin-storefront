@@ -7,7 +7,7 @@ type AppStateContextProps = {
     dispatch: Dispatch<Action>
 }
 
-const AppStateContext = createContext<AppStateContextProps>({} as AppStateContextProps)
+export const AppStateContext = createContext<AppStateContextProps>({} as AppStateContextProps)
 
 const AppStateContextProvider: React.FC = ({children}) => {
     const [state, dispatch] = useReducer(appReducer, appData)
