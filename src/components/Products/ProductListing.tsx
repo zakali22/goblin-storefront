@@ -15,19 +15,20 @@ const ProductListing = ({products}: ProductListingProps) => {
     const [filteredProducts, setFilteredProducts] = useState<Product[] | []>(products)
 
     useEffect(() => {
-        setFilteredProducts(products)
-        const filteredList = filteredProducts.filter(product => {
+        const filteredList = products.filter(product => {
             return product.category.toLowerCase() === selectedCategory
         })
-        console.log(filteredList)
-    }, [products])
+        setFilteredProducts(filteredList)
+    }, [products, selectedCategory])
 
     return (
         <>
         <SortingHeader />
-        <WrapperContainer title={selectedCategory}>
+        <WrapperContainer title={selectedCategory === 'all' ? `${selectedCategory} products` : selectedCategory}>
             <GridListing gridColumnWidth={200} padding="0">
-                {filteredProducts.length > 0 ? (filteredProducts.map((product, idx) => <ProductCard key={idx} product={product}/>)) : null}
+                {filteredProducts.length > 0 ? 
+                    (filteredProducts.map((product, idx) => <ProductCard key={idx} product={product}/>)) : 
+                    (products.map((product, idx) => <ProductCard key={idx} product={product}/>))}
             </GridListing>
         </WrapperContainer>
         </>
