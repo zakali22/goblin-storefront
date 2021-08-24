@@ -1,10 +1,6 @@
 
-type CartTotalProps = {
-    cartTotal: number
-}
-
-const CartTotal = ({cartTotal}: CartTotalProps) => (
-    <p>Total: {cartTotal} Zm</p>
+const CartTotal = () => (
+    <p>Total: 115 Zm</p>
 )
 
 export default CartTotal
