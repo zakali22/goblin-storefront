@@ -50,6 +50,21 @@ const globalStyles = createGlobalStyle`
 
     button.nes-btn {
         margin: 30px 0;
+
+        &:disabled {
+            pointer-event: none;
+            background: lightgrey;
+            cursor: not-allowed;
+            &::after {
+                box-shadow: inset -4px -4px lightgrey
+            }
+            &:hover, &:focus {
+                background: lightgrey;
+                &::after {
+                    box-shadow: inset -4px -4px lightgrey
+                }
+            }
+        }
     }
 `
 

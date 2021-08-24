@@ -3,13 +3,20 @@ import {ImageWrapper} from "../../assets/styles/index"
 import {Product} from "../../state/appStateReducer"
 import {addProductCart} from "../../state/appStateActions"
 import {useAppState} from "../../utils/useAppState"
+import { useEffect, useState } from "react"
 
 type ProductCardProps = {
     product: Product
 }
 
 const ProductCard = ({product}: ProductCardProps) => {
-    const {dispatch} = useAppState()
+    const {state: {cart}, dispatch} = useAppState()
+    const [isAdded, setIsAdded] = useState(false)
+
+    useEffect(() => {
+        const itemExists = cart.find(cartItem => cartItem._id === product._id)
+        setIsAdded(!!itemExists)
+    }, [cart, product])
 
     return (
         <Card className="nes-container is-rounded">
@@ -18,7 +25,7 @@ const ProductCard = ({product}: ProductCardProps) => {
             </ImageWrapper>
             <p>{product.name}</p>
             <p>{product.price} Zm</p>
-            <button type="button" className="nes-btn is-primary" onClick={() => dispatch(addProductCart(product))}>Add to card</button>
+            <button type="button" className="nes-btn is-primary" disabled={isAdded} onClick={() => dispatch(addProductCart(product))}>Add to card</button>
         </Card>
     )
 }
