@@ -1,23 +1,23 @@
 import {WrapperFlexed, ImageWrapper} from "../../assets/styles/index"
-import {Product} from "../../state/appStateReducer"
 import {removeProductCart} from "../../state/appStateActions"
+import { Product } from "../../state/appStateReducer"
 import { useAppState } from "../../utils/useAppState"
 
 type CartItemProps = {
     cartItem: Product
 }
 
-const CartItem = ({cartItem: {_id, price, image, description}}: CartItemProps) => {
+const CartItem = ({cartItem}: CartItemProps) => {
     const {dispatch} = useAppState()
 
     return (
         <WrapperFlexed margin="0 0 20px 0">
             <ImageWrapper width="64">
-                <img src={image} alt="Product"/>
+                <img src={cartItem.image} alt="Product"/>
             </ImageWrapper>
-            <p>{description}</p>
-            <p>{price} Zm</p>
-            <button type="button" className="nes-btn is-error" onClick={() => dispatch(removeProductCart(_id))}>Remove</button>
+            <p>{cartItem.name}</p>
+            <p>{cartItem.price} Zm</p>
+            <button type="button" className="nes-btn is-error" onClick={() => dispatch(removeProductCart(cartItem._id))}>Remove</button>
         </WrapperFlexed>
     )
 }
