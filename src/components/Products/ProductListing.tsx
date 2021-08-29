@@ -15,6 +15,7 @@ const ProductListing = ({products}: ProductListingProps) => {
     const [filteredProducts, setFilteredProducts] = useState<Product[] | []>(products)
 
     useEffect(() => {
+        console.log(products)
         const filteredList = products.filter(product => {
             return product.category.toLowerCase() === selectedCategory
         })
