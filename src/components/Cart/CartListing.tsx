@@ -8,7 +8,7 @@ type CartListingProps = {
 
 const CartListing = ({cart}: CartListingProps) => (
     <Wrapper>
-        {cart.map(cartItem => <CartItem cartItem={cartItem} />)}
+        {cart.map((cartItem, idx) => <CartItem cartItem={cartItem} key={idx} />)}
     </Wrapper>
 )
 
