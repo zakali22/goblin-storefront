@@ -42,6 +42,16 @@ const globalStyles = createGlobalStyle`
         }
     }
 
+    a {
+        text-decoration: none;
+        color: inherit;
+
+        &:hover, &:focus {
+            text-decoration: none;
+            color: inherit
+        }
+    }
+
     svg {
         height: auto;
         width: 100%;

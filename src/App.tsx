@@ -8,6 +8,7 @@ import Checkout from "./components/Checkout/Checkout"
 import OrderSummary from "./components/Checkout/OrderSummary"
 import { useAppState } from './utils/useAppState';
 import {setProducts, setCategories} from "./state/appStateActions"
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
 
 function App() {
   const {state: {productList}, dispatch} = useAppState()
@@ -37,15 +38,19 @@ function App() {
   }, [dispatch])
 
   return (
-    <Fragment>
+    <Router>
       <GlobalStyles />
       <Layout>
-        <ProductListing products={productList}/>
-        <CartSummary />
-        <Checkout />
-        <OrderSummary />
+      <Switch>
+          <Route exact path="/" render={(renderProps) => {
+            return <ProductListing products={productList} {...renderProps} />
+          }} />
+          <Route exact path="/order" component={OrderSummary} />
+          <Route exact path="/checkout" component={Checkout} />
+          <Route exact path="/cart" component={CartSummary} />
+      </Switch>
       </Layout>
-    </Fragment>
+    </Router>
   );
 }
 
