@@ -4,6 +4,7 @@ import {Product} from "../../state/appStateReducer"
 import WrapperContainer from "../WrapperContainer"
 import CartListing from "./CartListing"
 import CartTotal from "./CartTotal"
+import {Link} from "react-router-dom"
 
 const CartSummary = () => {
     const {state: {cart}} = useAppState()
@@ -21,7 +22,7 @@ const CartSummary = () => {
         <WrapperContainer title="Cart summary" centered>
             <CartListing cart={cart} />
             <CartTotal cartTotal={cartTotal} />
-            <button type="button" className="nes-btn is-primary">Go to checkout</button>
+            <Link to="/checkout" type="button" className="nes-btn is-primary">Go to checkout</Link>
         </WrapperContainer>
     )
 }
