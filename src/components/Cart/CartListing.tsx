@@ -1,11 +1,14 @@
 import {Wrapper} from "../../assets/styles/index"
 import CartItem from "./CartItem"
+import {Product} from "../../state/appStateReducer"
 
-const CartListing = () => (
+type CartListingProps = {
+    cart: Product[]
+}
+
+const CartListing = ({cart}: CartListingProps) => (
     <Wrapper>
-        <CartItem />
-        <CartItem />
-        <CartItem />
+        {cart.map((cartItem, idx) => <CartItem cartItem={cartItem} key={idx} />)}
     </Wrapper>
 )
 
