@@ -2,6 +2,7 @@ import axios from "axios"
 import React, {useState} from "react"
 import {Wrapper, Form} from "../../assets/styles/index"
 import { Product } from "../../state/appStateReducer"
+import {clearProductCart} from "../../state/appStateActions"
 import { useAppState } from "../../utils/useAppState"
 import {withRouter} from "react-router"
 import { RouteComponentProps } from "react-router-dom"
@@ -49,7 +50,7 @@ const CheckoutForm = ({title, history}: CheckoutFormProps) => {
         }
     }
 
-    const {state: {cart}} = useAppState()
+    const {state: {cart}, dispatch} = useAppState()
     const [checkoutForm, setCheckoutForm] = useState<CheckoutFormFields>(initialFormValues)
 
     const checkoutOrder = async (products: Product[]) => {
@@ -77,6 +78,8 @@ const CheckoutForm = ({title, history}: CheckoutFormProps) => {
             try {
                 const {orderId} = await checkoutOrder(cart)
                 console.log(orderId)
+
+                dispatch(clearProductCart())
                 history.push(`/order/${orderId}`)
             } catch(e){
                 console.log(e)

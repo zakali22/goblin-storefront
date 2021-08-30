@@ -54,6 +54,11 @@ export function appReducer(state: AppState, action: Action){
                 ...state,
                 cart: state.cart.filter(product => product._id !== action.payload.productId)
             }
+        case "CLEAR_PRODUCT_CART": 
+            return {
+                ...state,
+                cart: []
+            }
         default: 
             return state
     }

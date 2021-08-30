@@ -32,7 +32,7 @@ const OrderSummary = ({match: {params: {orderId}}}: RouteComponentProps<MatchPar
                 <div className="lists">
                     <ul className="nes-list is-circle">
                         {orderProducts.map((orderProduct, idx) => (
-                            <WrapperFlexed margin="0 0 46px 0" justifyContent="space-around">
+                            <WrapperFlexed margin="0 0 46px 0" justifyContent="space-around" key={idx}>
                                 <ImageWrapper width="64">
                                     <img src={orderProduct.image} alt="Product"/>
                                 </ImageWrapper>
