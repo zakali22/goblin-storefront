@@ -58,7 +58,7 @@ const globalStyles = createGlobalStyle`
         display: block;
     }
 
-    button.nes-btn {
+    button.nes-btn, .nes-btn {
         margin: 30px 0;
 
         &:disabled {

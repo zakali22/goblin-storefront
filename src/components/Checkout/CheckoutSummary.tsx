@@ -1,14 +1,16 @@
 import WrapperContainer from "../WrapperContainer"
+import { Product } from "../../state/appStateReducer"
 
-const CheckoutSummary = () => (
+type CheckoutSummaryProps = {
+    cart: Product[]
+}
+
+const CheckoutSummary = ({cart}: CheckoutSummaryProps) => (
     <WrapperContainer rounded>
         <p>You are going to buy:</p>
         <div className="lists">
             <ul className="nes-list is-circle">
-                <li>Good morning.</li>
-                <li>Thou hast had a good night's sleep, I hope.</li>
-                <li>Thou hast had a good afternoon</li>
-                <li>Good night.</li>
+                {cart.map((cartItem, idx) => <li key={idx}>{cartItem.name}</li>)}
             </ul>
         </div>
     </WrapperContainer>
