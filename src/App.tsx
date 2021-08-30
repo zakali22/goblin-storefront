@@ -45,7 +45,7 @@ function App() {
           <Route exact path="/" render={(renderProps) => {
             return <ProductListing products={productList} {...renderProps} />
           }} />
-          <Route exact path="/order" component={OrderSummary} />
+          <Route exact path="/order/:orderId" component={OrderSummary} />
           <Route exact path="/checkout" component={Checkout} />
           <Route exact path="/cart" component={CartSummary} />
       </Switch>

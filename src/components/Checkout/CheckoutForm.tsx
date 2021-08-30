@@ -1,7 +1,12 @@
+import axios from "axios"
 import React, {useState} from "react"
 import {Wrapper, Form} from "../../assets/styles/index"
+import { Product } from "../../state/appStateReducer"
+import { useAppState } from "../../utils/useAppState"
+import {withRouter} from "react-router"
+import { RouteComponentProps } from "react-router-dom"
 
-type CheckoutFormProps = {
+interface CheckoutFormProps extends RouteComponentProps {
     title?: string
 }
 
@@ -24,7 +29,7 @@ type CheckoutFormFields = {
     }
 }
 
-const CheckoutForm = ({title}: CheckoutFormProps) => {
+const CheckoutForm = ({title, history}: CheckoutFormProps) => {
     const initialFormValues = {
         card_name: {
             value: '',
@@ -44,7 +49,14 @@ const CheckoutForm = ({title}: CheckoutFormProps) => {
         }
     }
 
+    const {state: {cart}} = useAppState()
     const [checkoutForm, setCheckoutForm] = useState<CheckoutFormFields>(initialFormValues)
+
+    const checkoutOrder = async (products: Product[]) => {
+        const res = await axios.post('http://localhost:4000/checkout', {products})
+        console.log(res)
+        return res.data
+    }
 
     const handleInput = (e: React.SyntheticEvent): void => {
         const target = e.target as HTMLInputElement
@@ -57,13 +69,24 @@ const CheckoutForm = ({title}: CheckoutFormProps) => {
         }))
     }
 
-    const handleFormSubmit = (e: React.SyntheticEvent): void => {
+    const handleFormSubmit = async (e: React.SyntheticEvent): Promise<any> => { // Async/await functions must return Promise instead of void
         e.preventDefault()
-
-        handleFormValidation()
+        const containsErr = handleFormValidation()
+        
+        if(!containsErr) {
+            try {
+                const {orderId} = await checkoutOrder(cart)
+                console.log(orderId)
+                history.push(`/order/${orderId}`)
+            } catch(e){
+                console.log(e)
+            }
+        }
     }
 
     const handleFormValidation = () => {
+        let containsErr: boolean = false
+
         for(let formField in checkoutForm){
             const {value} = checkoutForm[formField as keyof CheckoutFormFields]
             if(!value.length) {
@@ -74,8 +97,13 @@ const CheckoutForm = ({title}: CheckoutFormProps) => {
                         err: `${formField.split('_').join(' ')} must not be empty`
                     }
                 }))
+                containsErr = true
+            } else {
+                containsErr = false
             }
         }
+
+        return containsErr
     }
 
     return (
@@ -108,4 +136,4 @@ const CheckoutForm = ({title}: CheckoutFormProps) => {
     )
 }
 
-export default CheckoutForm
+export default withRouter(CheckoutForm)
